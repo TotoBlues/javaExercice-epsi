@@ -1,33 +1,33 @@
 package phrase_exercice;
 
 public class Phrase {
-	private String phrase = "";
-	private String separateur = " ";
+	private String _phrase = "";
+	private String _separateur = " ";
 	
 	public void ajouter(String... s) {
 		for (String valeur : s) {
-			phrase += valeur + separateur;
+			_phrase += valeur + _separateur;
 		}
 	}
 	
 	public void ajouter(String s, int nb) {
 		for (int i = 0; i < nb; i++) {
-			phrase += s + separateur;
+			_phrase += s + _separateur;
 		}
 	}
 	
 	public void setSeparateur(String s) {
-		separateur = s;
+		_separateur = s;
 	}
 	
 	public void setSeparateur(char s) {
-		separateur = String.valueOf(s);
+		_separateur = String.valueOf(s);
 	}
 
 	public int getNbLettres() {
-		char[] valeurs = phrase.toCharArray();
+		char[] valeurs = _phrase.toCharArray();
 		int nb = 0;
-		for (int i = 0; i < phrase.length(); i++) {
+		for (int i = 0; i < _phrase.length(); i++) {
 			if (valeurs[i] >= 'A' && valeurs[i] <= 'Z' ||	
 					valeurs[i] >= 'a' && valeurs[i] <= 'z')
 				nb++;
@@ -36,8 +36,8 @@ public class Phrase {
 	}
 	
 	public String toString() {
-		phrase = phrase.substring(0, phrase.length() - 1);
-		return (phrase + ".");
+		_phrase = _phrase.substring(0, _phrase.length() - _separateur.length());
+		return (_phrase + '.');
 	}
 
 	public static void main(String[] args) {
@@ -49,9 +49,11 @@ public class Phrase {
 		phrase.ajouter("des mots");
 		phrase.setSeparateur(" et encore ");
 		phrase.ajouter("des mots", 3);
-		phrase.setSeparateur(' ');
+		phrase.setSeparateur(' fjeioz ');
 		phrase.ajouter("toujours", "et", "encore");
 	
+		phrase.ajouter("lol")
+		phrase.setSeparateur(" bite ");
 		System.out.println(phrase);
 		System.out.println(phrase.getNbLettres());
 	}
