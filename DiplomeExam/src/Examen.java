@@ -1,14 +1,14 @@
 
 public class Examen extends Diplome{
-private static int _note = -1;
+private int note = -1;
 
 
 public int getNote() {
-	return _note;
+	return note;
 }
 
 public void setNote(int note) {
-	_note = note;
+	this.note = note;
 }
 
 }

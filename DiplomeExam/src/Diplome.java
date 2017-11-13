@@ -2,7 +2,7 @@ import java.util.ArrayList;
 
 public class Diplome{
 	java.util.List<Examen> listNote = new ArrayList<Examen>();
-	private int _moy = -1;
+	private int moy = -1;
 	
 	public void setExamen(Examen exam) {
 		listNote.add(exam);
@@ -11,11 +11,11 @@ public class Diplome{
 	public boolean isValide() {
 		int i = 0;
 		for (Examen l : listNote) {
-			_moy += l.getNote();
+			moy += l.getNote();
 			i++;
 		}
-		_moy /= i;
-		if (_moy != -1 && _moy > 10) {
+		moy /= i;
+		if (moy != -1 && moy > 10) {
 			return true;
 		}
 		else {

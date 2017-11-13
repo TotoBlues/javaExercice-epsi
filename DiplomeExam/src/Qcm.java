@@ -1,12 +1,12 @@
 
 public class Qcm extends Examen{
-	private static int _nbQuestions;
+	private int nbQuestions;
 	
-	public Qcm(int nbQuestions) {
-		_nbQuestions = nbQuestions;
+	public Qcm(int nbQuestion) {
+		this.nbQuestions = nbQuestion;
 	}
 	
 	public void	setReponsesCorrectes(int nbReponsesCorrect) {
-		super.setNote(nbReponsesCorrect * 20 / _nbQuestions);
+		super.setNote(nbReponsesCorrect * 20 / nbQuestions);
 	}
 }
