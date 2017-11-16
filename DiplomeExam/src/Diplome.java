@@ -1,13 +1,13 @@
 import java.util.ArrayList;
 
 public class Diplome{
-	java.util.List<Examen> listNote = new ArrayList<Examen>();
+	private java.util.List<Examen> listNote = new ArrayList<Examen>();
 	private int moy = -1;
 	
 	public void setExamen(Examen exam) {
 		listNote.add(exam);
 	}
-	
+
 	public boolean isValide() {
 		int i = 0;
 		for (Examen l : listNote) {
