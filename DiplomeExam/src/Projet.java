@@ -4,4 +4,8 @@ public class Projet extends Examen{
 		int note = oral + ecrit;
 		super.setNote(note);
 	}
+	
+	public void setAppreciation(String appOral, String appEcrite) {
+		super.setAppreciation(new String("Appreciation Orale : " + appOral + ". Appreciation Ecrite : " + appEcrite + "."));
+	}
 }
