@@ -1,8 +1,17 @@
 import java.util.ArrayList;
+import java.util.List;
 
 public class Diplome{
-	private java.util.List<Examen> listNote = new ArrayList<Examen>();
+	private List<Examen> listNote = new ArrayList<Examen>();
 	private int moy = -1;
+	
+	public void afficherDetailDesNotes() {
+		for (Examen exam : listNote) {
+			System.out.print(exam.getNote());
+			System.out.print(", ");
+			System.out.println(exam.getAppreciation());
+		}
+	}
 	
 	public void setExamen(Examen exam) {
 		listNote.add(exam);
@@ -32,9 +41,13 @@ public class Diplome{
 		examen.setNote(20);
 		projet.setNote(9, 6);
 		qcm.setNote(20);
+		projet.setAppreciation("très bien", "bien");
+		qcm.setAppreciation();
+		examen.setAppreciation("très bien");
 		diplome.setExamen(examen);
 		diplome.setExamen(projet);
 		diplome.setExamen(qcm);
+		diplome.afficherDetailDesNotes();
 		System.out.println(diplome.isValide());
 	}
 }
