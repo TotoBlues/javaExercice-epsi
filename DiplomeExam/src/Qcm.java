@@ -1,27 +1,31 @@
 
-public class Qcm extends Examen{
+public class Qcm extends Controle {
 	private int nbQuestions;
 	
-	public Qcm(int nbQuestion) {
-		this.nbQuestions = nbQuestion;
+	public Qcm(int nbQuestion) throws ExamExceptions {
+		if (nbQuestion <= 0)
+			throw new ExamExceptions("Nb Questions invalid");
+		else
+			this.nbQuestions = nbQuestion;
 	}
 	
-	public void	setReponsesCorrectes(int nbReponsesCorrect) {
+	public void	setReponsesCorrectes(float nbReponsesCorrect) throws ExamExceptions {
+		if (nbReponsesCorrect <= 0 || nbReponsesCorrect > nbQuestions)
+			throw new ExamExceptions("Nb Correct Questions invalid");
 		super.setNote(nbReponsesCorrect * 20 / nbQuestions);
 	}
 	
 	public void setAppreciation() {
-		int note = super.getNote();
-		if (note < 8) {
+		if (super.getNote() < 8) {
 			super.setAppreciation("insuffisant");
 		}
-		else if (note >= 8 && note < 12) {
+		else if (super.getNote() >= 8 && super.getNote() < 12) {
 			super.setAppreciation("passable");
 		}
-		else if (note >= 12 && note <= 15) {
+		else if (super.getNote() >= 12 && super.getNote() <= 15) {
 			super.setAppreciation("bien");
 		}
-		else if (note >= 16) {
+		else if (super.getNote() >= 16) {
 			super.setAppreciation("très bien");
 		}
 	}
